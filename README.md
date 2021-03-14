@@ -4,6 +4,14 @@ This is a small wrapper for `make`, which captures `gcc` output and transforms e
 
 It takes advantage of [OSC8 escape sequence for hyperlinks](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda) and the [VSCode URL handler](https://code.visualstudio.com/docs/editor/command-line#_opening-vs-code-with-urls).
 
+## Why not just use the VSCode terminal?
+
+The VSCode terminal is [bound to a VSCode instance](https://github.com/microsoft/vscode/issues/10121), and VSCode doesn't support multi-monitor operation - so it is not possible to edit source files on one monitor and run the build on a second monitor with direct links from compiler messages to the editor.
+
+## TODOs / caveats
+
+`tmux` doesn't support hyperlinks and requires special escape sequences to "passthrough" such things to the terminal emulator.
+
 ## Prerequisites
 
 * gcc, make
