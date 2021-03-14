@@ -14,6 +14,7 @@ The VSCode terminal is [bound to a VSCode instance](https://github.com/microsoft
 
 ## Prerequisites
 
+* Python 3
 * gcc, make
 * Visual Studio Code or VSCodium
 * A [terminal emulator with support for hyperlinks](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda#file-hyperlinks_in_terminal_emulators-md)
