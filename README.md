@@ -12,6 +12,8 @@ The VSCode terminal is [bound to a VSCode instance](https://github.com/microsoft
 
 `tmux` doesn't support hyperlinks and requires special escape sequences to "passthrough" such things to the terminal emulator.
 
+Unfortunately, the "passthrough" mechanism in `tmux` does not work reliably, so the only solution ATM is a [patched version of tmux](https://github.com/patrislav1/tmux/tree/fix-hyperlinks) with native support for hyperlinks.
+
 ## Prerequisites
 
 * Python 3
