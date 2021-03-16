@@ -35,15 +35,20 @@ def vscode_link_msg(orig_msg, m):
     l = shell_hyperlink(vsc_url, orig_msg[0])
     sys.stderr.write(l + orig_msg[1] + '\n')
 
-process = subprocess.Popen('make', stdout=sys.stdout, stderr=subprocess.PIPE)
-for line in process.stderr:
-    line = line.decode('utf-8')
-    m = list(filter(None, [r.match(line) for r in re_gcc_file_loc]))
-    if len(m):
-        m = m[0]
-        vscode_link_msg(m[0], m.groupdict())
-    else:
-        sys.stderr.write(line)
+def main():
+    args = ['make'] + sys.argv[1:]
+    process = subprocess.Popen(args, stdout=sys.stdout, stderr=subprocess.PIPE)
+    for line in process.stderr:
+        line = line.decode('utf-8')
+        m = list(filter(None, [r.match(line) for r in re_gcc_file_loc]))
+        if len(m):
+            m = m[0]
+            vscode_link_msg(m[0], m.groupdict())
+        else:
+            sys.stderr.write(line)
 
-process.wait()
-sys.exit(process.returncode)
+    process.wait()
+    sys.exit(process.returncode)
+
+if __name__ == '__main__':
+    main()
