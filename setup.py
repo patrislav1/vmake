@@ -14,7 +14,7 @@ packages=setuptools.find_packages(include=['vmake'])
 
 setuptools.setup(
     name='vmake',
-    version='0.1.1',
+    version='0.1.2',
     author='Patrick Huesmann',
     author_email='info@patrick-huesmann.de',
     url='https://github.com/patrislav1/vmake',
